@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TikTok Clone</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="app">
+    <div class="video-feed">
+      <video id="video" autoplay loop muted>
+        <source src="video.mp4" type="video/mp4" />
+        Your browser does not support HTML video.
+      </video>
+      <div class="overlay">
+        <div class="video-info">
+          <h3>@username</h3>
+          <p>Cool dance moves! 💃🔥</p>
+        </div>
+        <div class="actions">
+          <button>❤️</button>
+          <button>💬</button>
+          <button>🔗</button>
+        </div>
+      </div>
+    </div>
+    <nav class="bottom-nav">
+      <button>🏠</button>
+      <button>🔍</button>
+      <button class="record">➕</button>
+      <button>📩</button>
+      <button>👤</button>
+    </nav>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
