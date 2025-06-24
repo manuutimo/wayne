@@ -2,71 +2,70 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Camera App</title>
+  <title>ERP Login</title>
   <style>
     body {
-      margin: 0;
-      background: #000;
-      color: white;
-      font-family: sans-serif;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      height: 100vh;
+      align-items: center;
+      min-height: 100vh;
+      background: #f0f2f5;
+      margin: 0;
+      font-family: Arial, sans-serif;
     }
-
-    video, canvas {
-      border: 2px solid white;
-      max-width: 100%;
-      border-radius: 10px;
+    .login-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 320px;
     }
-
-    #capture {
-      margin-top: 15px;
-      padding: 10px 20px;
-      font-size: 16px;
-      background: #ff2d55;
+    .login-box h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .login-box label {
+      display: block;
+      margin-top: 0.75rem;
+    }
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.25rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    .login-box button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 1.2rem;
+      background-color: #007bff;
       color: white;
       border: none;
-      border-radius: 5px;
+      border-radius: 4px;
       cursor: pointer;
     }
-
-    #snapshot {
-      margin-top: 15px;
+    .login-box button:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
 
-  <h2>📸 Simple Camera App</h2>
-  <video id="video" autoplay playsinline></video>
-  <button id="capture">Capture Photo</button>
-  <canvas id="snapshot" width="640" height="480"></canvas>
+  <div class="login-box">
+    <h2>ERP System Login</h2>
+    <form action="/login" method="POST">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
 
-  <script>
-    const video = document.getElementById('video');
-    const canvas = document.getElementById('snapshot');
-    const captureButton = document.getElementById('capture');
-    const context = canvas.getContext('2d');
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
 
-    // Ask for camera access
-    navigator.mediaDevices.getUserMedia({ video: true })
-      .then(stream => {
-        video.srcObject = stream;
-      })
-      .catch(err => {
-        alert('Camera access denied or not supported.');
-        console.error(err);
-      });
-
-    // Capture image
-    captureButton.addEventListener('click', () => {
-      context.drawImage(video, 0, 0, canvas.width, canvas.height);
-    });
-  </script>
+      <button type="submit">Login</button>
+    </form>
+  </div>
 
 </body>
 </html>
